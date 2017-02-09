@@ -4,13 +4,13 @@ import getpass
 import time
 import random
 import sys
-import prawconfig
+import ondemandconfig
 from twilio.rest import TwilioRestClient
 #Imports
 
 #creates the reddit instance
-reddit = praw.Reddit(client_id=prawconfig.client_id, client_secret=prawconfig.client_secret, password= prawconfig.password,
- user_agent=prawconfig.user_agent, username=prawconfig.username)
+reddit = praw.Reddit(client_id=ondemandconfig.client_id, client_secret=ondemandconfig.client_secret, password= ondemandconfig.password,
+ user_agent=ondemandconfig.user_agent, username=ondemandconfig.username)
 
  #Lists the available functions
 def flist():
@@ -180,7 +180,7 @@ def mail():
 	if e== "":
 		f =open("links.txt", "r")
 		fs = f.read()
-		reddit.redditor(prawconfig.receiver).message('List',fs)
+		reddit.redditor(ondemandconfig.receiver).message('List',fs)
 		f.close()
 	else:
 		text()
@@ -190,8 +190,8 @@ def mail():
 def text():
 	fa = open("links.txt", "r")
 	fb= fa.read()
-	twilioclient = TwilioRestClient(prawconfig.accountSID, prawconfig.authToken)
-	message = twilioclient.messages.create(body=fb, from_=prawconfig.myTwilioNumber, to=prawconfig.myCellPhone)
+	twilioclient = TwilioRestClient(ondemandconfig.accountSID, ondemandconfig.authToken)
+	message = twilioclient.messages.create(body=fb, from_=ondemandconfig.myTwilioNumber, to=ondemandconfig.myCellPhone)
 
 	#_____________________________CREATE__FUNCTIONS__ABOVE__RUN__MAIN__BELOW_____________________________________________
 main()
