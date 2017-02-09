@@ -11,4 +11,4 @@ ran() chooses a random subreddit and decides whether to call top25(), hot(), or 
     
 mail() sends reddit PM to receiver set in prawconfig
     
-text() uses twilio( must have account set up) to send texts, prawconfig for all settings
+text() uses twilio( must have account set up) to send texts, ondemandconfig for all settings
